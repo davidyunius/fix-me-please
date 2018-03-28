@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const path = require('path')
+const bodyParser = require('body-parser')
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/api-crud-mongoose', {
@@ -7,7 +9,9 @@ mongoose.connect('mongodb://localhost/api-crud-mongoose', {
   connectTimeoutMS: 1000
 }, (err) => {
   err ? console.log('Can\'t connect to database') : console.log('Database connected')
-});
+  });
+
+app.use(express.static(__dirname + "/public"));
 
 const books = require('./routes/books');
 const transactions = require('./routes/transactions');

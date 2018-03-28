@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const transactionSchema = Schema({
+const transactionSchema = new Schema({
   memberid: String,
   days: String,
   date: { type: Date, default: Date.now() },
